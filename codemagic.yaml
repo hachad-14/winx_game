@@ -67,10 +67,6 @@ workflows:
         notify:
           success: true               # To not receive a notification when a build succeeds
           failure: false              # To not receive a notification when a build fails
-      google_play:
-        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
-        track: $GOOGLE_PLAY_TRACK
-        in_app_update_priority: 0
   ios-workflow:
     name: iOS Workflow
     # instance_type: mac_mini
