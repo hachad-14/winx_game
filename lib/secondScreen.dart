@@ -95,14 +95,14 @@ class StartGame extends State<GameScreen> {
                        child: Text("Action ou vérité", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, color: Color.fromRGBO(255, 255, 255, 1)))),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top: 10, right: 40),
+                    padding: EdgeInsets.only(top: 10, right: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,              
                       children: [
                         Text("🔥", style: TextStyle(fontSize: 50)),
                         Padding(
                           padding: EdgeInsets.only(top: 0, left: 40),
-                          child: Text("De vrais actions ainsi que des\nvéritées chaud lapins !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14, color: Color.fromRGBO(255, 255, 255, 1)))),
+                          child: Text("Jurez vérité, et jouez vos actions\nles conséquences seront\nirréversible !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14, color: Color.fromRGBO(255, 255, 255, 1)))),
                         ),
                       ],
                     )
@@ -129,8 +129,8 @@ class StartGame extends State<GameScreen> {
                       children: [
                         Text("☠️", style: TextStyle(fontSize: 50)),
                         Padding(
-                          padding: EdgeInsets.only(top: 0, left: 40),
-                          child: Text("Les actions qui suivent devraient\nêtre fait en groupe,\naucune action ne doit être annulée !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14, color: Color.fromRGBO(255, 255, 255, 1)))),
+                          padding: EdgeInsets.only(top: 0, left: 35),
+                          child: Text("Les actions qui suivent devraient\nêtre faites en groupe, aucun\néchapatoire !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14, color: Color.fromRGBO(255, 255, 255, 1)))),
                         ),
                       ],
                     )
@@ -148,17 +148,17 @@ class StartGame extends State<GameScreen> {
                 children: [
                   Padding(
                        padding: EdgeInsets.only(top: 20),
-                       child: Text("Hardcore", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, color: Color.fromRGBO(255, 255, 255, 1)))),
+                       child: Text("Sans limites", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, color: Color.fromRGBO(255, 255, 255, 1)))),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top: 10, right: 10),
+                    padding: EdgeInsets.only(top: 10, right: 33),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,              
                       children: [
                         Text("❌", style: TextStyle(fontSize: 50)),
                         Padding(
-                          padding: EdgeInsets.only(top: 0, left: 40),
-                          child: Text("Mode de jeu très problématique,\npas de gage,\ndonc obligation de répondre !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14, color: Color.fromRGBO(255, 255, 255, 1)))),
+                          padding: EdgeInsets.only(top: 0, left: 33),
+                          child: Text("Bienvue en enfer, il n'y a plus\nd'issue !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14, color: Color.fromRGBO(255, 255, 255, 1)))),
                         ),
                       ],
                     )
