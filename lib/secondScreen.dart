@@ -151,14 +151,14 @@ class StartGame extends State<GameScreen> {
                        child: Text("Hardcore", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, color: Color.fromRGBO(255, 255, 255, 1)))),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top: 10, right: 40),
+                    padding: EdgeInsets.only(top: 10, right: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,              
                       children: [
                         Text("❌", style: TextStyle(fontSize: 50)),
                         Padding(
                           padding: EdgeInsets.only(top: 0, left: 40),
-                          child: Text("De vrais actions ainsi que des\nvéritées chaud lapins !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14, color: Color.fromRGBO(255, 255, 255, 1)))),
+                          child: Text("Mode de jeu très problématique,\npas de gage,\ndonc obligation de répondre !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14, color: Color.fromRGBO(255, 255, 255, 1)))),
                         ),
                       ],
                     )
