@@ -1,8 +1,11 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_null_comparison
 import 'dart:math';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+
+import 'screens/ac.dart';
 
 class GameScreen extends StatefulWidget {
   @override
@@ -86,29 +89,39 @@ class StartGame extends State<GameScreen> {
           Align(
             alignment: Alignment(0, 0),
             child: Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,              
-                children: [
-                  Padding(padding: EdgeInsets.only(top: 20),child: Spacer()),
-                  Padding(
-                       padding: EdgeInsets.only(top: 20),
-                       child: Text("Action ou vérité", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, color: Color.fromRGBO(255, 255, 255, 1)))),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 10, right: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,              
-                      children: [
-                        Text("🔥", style: TextStyle(fontSize: 50)),
-                        Padding(
-                          padding: EdgeInsets.only(top: 0, left: 40),
-                          child: Text("Jurez vérité, et jouez vos actions\nles conséquences seront\nirréversible !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14, color: Color.fromRGBO(255, 255, 255, 1)))),
-                        ),
-                      ],
-                    )
-                  ),
-                 Padding(padding: EdgeInsets.only(top: 20),child: Spacer()),
-                ],
+              child: InkWell(
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                enableFeedback: false,
+                onTap: () {
+                  Navigator.push(context,
+                    CupertinoPageRoute(builder:(context) => TruthOrDare()),
+                  );
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,              
+                  children: [
+                    Padding(padding: EdgeInsets.only(top: 20),child: Spacer()),
+                    Padding(
+                         padding: EdgeInsets.only(top: 20),
+                         child: Text("Action ou vérité", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Color.fromRGBO(255, 255, 255, 1)))),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 10, right: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,              
+                        children: [
+                          Text("🔥", style: TextStyle(fontSize: 50)),
+                          Padding(
+                            padding: EdgeInsets.only(top: 0, left: 40),
+                            child: Text("Jurez vérité, et jouez vos actions\nles conséquences seront\nirréversible !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14, color: Color.fromRGBO(255, 255, 255, 1)))),
+                          ),
+                        ],
+                      )
+                    ),
+                   Padding(padding: EdgeInsets.only(top: 20),child: Spacer()),
+                  ],
+                ),
               ),
             ),
           ),
@@ -120,7 +133,7 @@ class StartGame extends State<GameScreen> {
                 children: [
                   Padding(
                        padding: EdgeInsets.only(top: 20),
-                       child: Text("Actions commune !", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, color: Color.fromRGBO(255, 255, 255, 1)))),
+                       child: Text("Actions commune !", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Color.fromRGBO(255, 255, 255, 1)))),
                   ),
                   Padding(
                     padding: EdgeInsets.only(top: 10, right: 20),
@@ -148,7 +161,7 @@ class StartGame extends State<GameScreen> {
                 children: [
                   Padding(
                        padding: EdgeInsets.only(top: 20),
-                       child: Text("Sans limites", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, color: Color.fromRGBO(255, 255, 255, 1)))),
+                       child: Text("Sans limites", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Color.fromRGBO(255, 255, 255, 1)))),
                   ),
                   Padding(
                     padding: EdgeInsets.only(top: 10, right: 33),
