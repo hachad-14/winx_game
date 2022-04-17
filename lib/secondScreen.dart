@@ -9,6 +9,27 @@ class GameScreen extends StatefulWidget {
   StartGame createState() => StartGame();
 }
 
+class Spacer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,              
+        children: [
+          Container(
+            width: 340,
+            height: 1,
+            decoration:
+            BoxDecoration(color: Color.fromRGBO(0, 246, 113, 1), borderRadius: BorderRadius.circular(20),
+            boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3),spreadRadius: 0.5,blurRadius: 2, offset: Offset(0, 1), )]
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class StartGame extends State<GameScreen> {
   @override
   Widget build(BuildContext context) {
@@ -68,17 +89,7 @@ class StartGame extends State<GameScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,              
                 children: [
-                  Padding(
-                    padding: EdgeInsets.only(top: 30),
-                    child:Container(
-                      width: 380,
-                      height: 1,
-                      decoration:
-                      BoxDecoration(color: Color.fromRGBO(0, 246, 113, 1), borderRadius: BorderRadius.circular(20),
-                      boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3),spreadRadius: 0.5,blurRadius: 2, offset: Offset(0, 1), )]
-                      ),
-                    ),
-                  ),
+                  Padding(padding: EdgeInsets.only(top: 20),child: Spacer()),
                   Padding(
                        padding: EdgeInsets.only(top: 20),
                        child: Text("Action ou vérité", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, color: Color.fromRGBO(255, 255, 255, 1)))),
@@ -91,22 +102,12 @@ class StartGame extends State<GameScreen> {
                         Text("🔥", style: TextStyle(fontSize: 50)),
                         Padding(
                           padding: EdgeInsets.only(top: 0, left: 40),
-                          child: Text("De vrais actions ainsi que des\nvéritées chaud lapins !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 15, color: Color.fromRGBO(255, 255, 255, 1)))),
+                          child: Text("De vrais actions ainsi que des\nvéritées chaud lapins !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14, color: Color.fromRGBO(255, 255, 255, 1)))),
                         ),
                       ],
                     )
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 20),
-                    child:Container(
-                      width: 380,
-                      height: 1,
-                      decoration:
-                      BoxDecoration(color: Color.fromRGBO(0, 246, 113, 1), borderRadius: BorderRadius.circular(20),
-                      boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3),spreadRadius: 0.5,blurRadius: 2, offset: Offset(0, 1), )]
-                      ),
-                    ),
-                  ),
+                 Padding(padding: EdgeInsets.only(top: 20),child: Spacer()),
                 ],
               ),
             ),
@@ -122,29 +123,19 @@ class StartGame extends State<GameScreen> {
                        child: Text("Actions commune !", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, color: Color.fromRGBO(255, 255, 255, 1)))),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top: 10, right: 40),
+                    padding: EdgeInsets.only(top: 10, right: 0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,              
                       children: [
                         Text("☠️", style: TextStyle(fontSize: 50)),
                         Padding(
                           padding: EdgeInsets.only(top: 0, left: 40),
-                          child: Text("De vrais actions ainsi que des\nvéritées chaud lapins !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 15, color: Color.fromRGBO(255, 255, 255, 1)))),
+                          child: Text("Les actions qui suivent devraient\nêtre fait en groupe,\naucune action ne doit être annulée !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14, color: Color.fromRGBO(255, 255, 255, 1)))),
                         ),
                       ],
                     )
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 20),
-                    child:Container(
-                      width: 380,
-                      height: 1,
-                      decoration:
-                      BoxDecoration(color: Color.fromRGBO(0, 246, 113, 1), borderRadius: BorderRadius.circular(20),
-                      boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3),spreadRadius: 0.5,blurRadius: 2, offset: Offset(0, 1), )]
-                      ),
-                    ),
-                  ),
+                  Padding(padding: EdgeInsets.only(top: 20),child: Spacer()),
                 ],
               ),
             ),
@@ -167,22 +158,12 @@ class StartGame extends State<GameScreen> {
                         Text("❌", style: TextStyle(fontSize: 50)),
                         Padding(
                           padding: EdgeInsets.only(top: 0, left: 40),
-                          child: Text("De vrais actions ainsi que des\nvéritées chaud lapins !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 15, color: Color.fromRGBO(255, 255, 255, 1)))),
+                          child: Text("De vrais actions ainsi que des\nvéritées chaud lapins !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14, color: Color.fromRGBO(255, 255, 255, 1)))),
                         ),
                       ],
                     )
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 20, bottom: 20),
-                    child:Container(
-                      width: 380,
-                      height: 1,
-                      decoration:
-                      BoxDecoration(color: Color.fromRGBO(0, 246, 113, 1), borderRadius: BorderRadius.circular(20),
-                      boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3),spreadRadius: 0.5,blurRadius: 2, offset: Offset(0, 1), )]
-                      ),
-                    ),
-                  ),
+                  Padding(padding: EdgeInsets.only(top: 20, bottom: 20),child: Spacer()),
                 ],
               ),
             ),
