@@ -52,6 +52,9 @@ class MyApp extends StatelessWidget {
                   ),
                   Container(
                     child: InkWell(
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      enableFeedback: false,
                       onTap: () async {
                         Navigator.push(context,
                            CupertinoPageRoute(builder:(context) => GameScreen()),
