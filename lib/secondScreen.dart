@@ -123,14 +123,14 @@ class StartGame extends State<GameScreen> {
                        child: Text("Actions commune !", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, color: Color.fromRGBO(255, 255, 255, 1)))),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top: 10, right: 0),
+                    padding: EdgeInsets.only(top: 10, right: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,              
                       children: [
                         Text("☠️", style: TextStyle(fontSize: 50)),
                         Padding(
                           padding: EdgeInsets.only(top: 0, left: 35),
-                          child: Text("Les actions qui suivent devraient\nêtre faites en groupe, aucun\néchapatoire !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14, color: Color.fromRGBO(255, 255, 255, 1)))),
+                          child: Text("Les actions qui suivent devront\nêtre faites en groupe, aucun\néchapatoire !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14, color: Color.fromRGBO(255, 255, 255, 1)))),
                         ),
                       ],
                     )
