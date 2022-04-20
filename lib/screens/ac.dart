@@ -1,8 +1,12 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_null_comparison
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 import 'package:google_fonts/google_fonts.dart';
+
+import '../api/players.dart';
+import '../api/acQuestions.dart';
 
 class TruthOrDare extends StatefulWidget {
   @override
@@ -31,6 +35,16 @@ class Spacer extends StatelessWidget {
 }
 
 class StartGame extends State<TruthOrDare> {
+  String randomPlayer = playersList[Random().nextInt(playersList.length)];
+  String randomQuestion = questionsList[Random().nextInt(questionsList.length)];
+   changeText() {
+    setState(() {
+     randomPlayer = playersList[Random().nextInt(playersList.length)]; 
+     randomQuestion = questionsList[Random().nextInt(questionsList.length)];
+    });
+  }
+ 
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -85,7 +99,7 @@ class StartGame extends State<TruthOrDare> {
                child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,              
                 children: [
-                  Text("Nom", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold ,color: Color.fromRGBO(255, 255, 255, 1)))),
+                  Text(randomPlayer, style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold ,color: Color.fromRGBO(255, 255, 255, 1)))),
                   Padding(
                     padding: EdgeInsets.only(top: 10),
                     child: Container(
@@ -98,7 +112,7 @@ class StartGame extends State<TruthOrDare> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,              
                         children: [ 
-                          Text("<Une Action>", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 22, fontWeight: FontWeight.bold ,color: Color.fromARGB(255, 0, 0, 0)))),
+                          Text(randomQuestion, style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 22, fontWeight: FontWeight.bold ,color: Color.fromARGB(255, 0, 0, 0)))),
                         ],
                       ),
                     ),
@@ -123,11 +137,19 @@ class StartGame extends State<TruthOrDare> {
                       BoxDecoration(color: Color.fromRGBO(0, 246, 113, 1), borderRadius: BorderRadius.circular(20),
                       boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3),spreadRadius: 0.5,blurRadius: 2, offset: Offset(0, 1), )]
                       ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,              
-                        children: [ 
-                          Text("Suivant", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 22, fontWeight: FontWeight.bold ,color: Color.fromARGB(255, 0, 0, 0)))),
-                        ],
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        enableFeedback: false,
+                        onTap: () {
+                          changeText();
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,              
+                          children: [ 
+                            Text("Suivant", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 22, fontWeight: FontWeight.bold ,color: Color.fromARGB(255, 0, 0, 0)))),
+                          ],
+                        ),
                       ),
                     ),
                   ),
