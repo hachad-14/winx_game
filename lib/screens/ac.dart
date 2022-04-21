@@ -112,7 +112,10 @@ class StartGame extends State<TruthOrDare> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,              
                         children: [ 
-                          Text(randomQuestion, style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 22, fontWeight: FontWeight.bold ,color: Color.fromARGB(255, 0, 0, 0)))),
+                          Padding(
+                            padding: EdgeInsets.all(22),
+                            child:Text(randomQuestion, textAlign: TextAlign.center, style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold ,color: Color.fromARGB(255, 0, 0, 0)))),
+                          ),
                         ],
                       ),
                     ),
