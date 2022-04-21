@@ -4,8 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:winx_game/api/players.dart';
 
 import 'screens/ac.dart';
+import 'api/players.dart';
 
 class GameScreen extends StatefulWidget {
   @override
@@ -53,8 +55,12 @@ class CupertinoPopUp extends StatelessWidget {
                   children: [
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const[
-                        Text("Ajouter des  joueurs", style: TextStyle(color: Color.fromRGBO(0, 246, 113, 1), fontSize: 30),)
+                      children: [
+                        Text("Ajouter des  joueurs", style: TextStyle(color: Color.fromRGBO(0, 246, 113, 1), fontSize: 30),),
+                        Padding(
+                          padding: EdgeInsets.only(top: 10, bottom: 20),
+                          child: Text("Joueurs par defaut: $playersList",style: TextStyle(color: Colors.white)),
+                        ),
                       ],
                     ),
                     Column(
@@ -66,7 +72,7 @@ class CupertinoPopUp extends StatelessWidget {
                             padding: EdgeInsets.only(top: 30),
                             child: CupertinoTextField(
                               prefix: Icon(CupertinoIcons.person),
-                              placeholder: "Joueur 1",
+                              placeholder: "Joueurs",
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.vertical(
                                   top: Radius.circular(10),
