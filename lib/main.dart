@@ -48,8 +48,13 @@ class MyApp extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,              
                 children: [
                   Padding(
-                      padding: EdgeInsets.only(top: 60),
-                      child: Text("No Limits", style: GoogleFonts.anton(textStyle: TextStyle(fontSize: 55, color: Color.fromRGBO(255, 255, 255, 1)))),
+                    padding: EdgeInsets.only(top: 60),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("No Limits", style: GoogleFonts.anton(textStyle: TextStyle(fontSize: 55, color: Color.fromRGBO(255, 255, 255, 1)))),
+                      ],
+                    ),
                   ),
                   Container(
                     child: InkWell(

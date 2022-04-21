@@ -71,16 +71,46 @@ class StartGame extends State<GameScreen> {
           Align(
             alignment: Alignment(0, 0),
             child: Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,              
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(top: 20),
+                    child: Text("No Limits", style: GoogleFonts.anton(textStyle: TextStyle(fontSize: 35, color: Color.fromRGBO(255, 255, 255, 1)))),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 20, top: 20),
+                    child: CircleAvatar(
+                      radius: 20,
+                      backgroundColor: Color.fromRGBO(0, 246, 113, 1),
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.add,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {
+                          CupertinoPopupSurface(
+                            child: Container(
+                              child: Text("fgsd"),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment(0, 0),
+            child: Container(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,              
                 children: [
                   Padding(
-                       padding: EdgeInsets.only(top: 20),
-                       child: Text("No Limits", style: GoogleFonts.anton(textStyle: TextStyle(fontSize: 35, color: Color.fromRGBO(255, 255, 255, 1)))),
-                  ),
-                  Padding(
-                     padding: EdgeInsets.only(top: 20),
-                     child: Text("Choisissez un mode de jeu", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 20, color: Color.fromRGBO(255, 255, 255, 1)))),
+                    padding: EdgeInsets.only(top: 10),
+                    child: Text("Choisissez un mode de jeu", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 20, color: Color.fromRGBO(255, 255, 255, 1)))),
                   ),
                 ],
               ),
