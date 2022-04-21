@@ -33,6 +33,64 @@ class Spacer extends StatelessWidget {
   }
 }
 
+class CupertinoPopUp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return CupertinoPopupSurface(
+      child: Material(
+        child: Container(
+          padding: EdgeInsetsDirectional.all(0),
+          color: Color.fromARGB(255, 34, 35, 43),
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).copyWith().size.height*0.7,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Align(
+                alignment: Alignment(0, 0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const[
+                        Text("Ajouter des  joueurs", style: TextStyle(color: Color.fromRGBO(0, 246, 113, 1), fontSize: 30),)
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        SizedBox(
+                          width: 200,
+                          child: Padding(
+                            padding: EdgeInsets.only(top: 30),
+                            child: CupertinoTextField(
+                              prefix: Icon(CupertinoIcons.person),
+                              placeholder: "Joueur 1",
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.vertical(
+                                  top: Radius.circular(10),
+                                  bottom: Radius.circular(10)
+                                ),
+                                color: Color.fromRGBO(0, 246, 113, 1),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ]
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          )
+        ),
+      ),
+      isSurfacePainted: true,
+    );
+  }
+}
+
 class StartGame extends State<GameScreen> {
   @override
   Widget build(BuildContext context) {
@@ -89,10 +147,11 @@ class StartGame extends State<GameScreen> {
                           color: Colors.white,
                         ),
                         onPressed: () {
-                          CupertinoPopupSurface(
-                            child: Container(
-                              child: Text("fgsd"),
-                            ),
+                          showCupertinoModalPopup(
+                            context: context,
+                            builder: (BuildContext builder) {
+                              return CupertinoPopUp();
+                            }
                           );
                         },
                       ),
