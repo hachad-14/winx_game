@@ -1,5 +1,4 @@
-// ignore_for_file: prefer_const_constructors, unnecessary_null_comparison
-import 'dart:math';
+// ignore_for_file: prefer_const_constructors, unnecessary_null_comparison, use_key_in_widget_constructors, avoid_print
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -17,25 +16,24 @@ class GameScreen extends StatefulWidget {
 class Spacer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,              
-        children: [
-          Container(
-            width: 340,
-            height: 1,
-            decoration:
-            BoxDecoration(color: Color.fromRGBO(0, 246, 113, 1), borderRadius: BorderRadius.circular(20),
-            boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3),spreadRadius: 0.5,blurRadius: 2, offset: Offset(0, 1), )]
-            ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,              
+      children: [
+        Container(
+          width: 340,
+          height: 1,
+          decoration:
+          BoxDecoration(color: Color.fromRGBO(0, 246, 113, 1), borderRadius: BorderRadius.circular(20),
+          boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3),spreadRadius: 0.5,blurRadius: 2, offset: Offset(0, 1), )]
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
 
 class CupertinoPopUp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return CupertinoPopupSurface(
@@ -65,13 +63,17 @@ class CupertinoPopUp extends StatelessWidget {
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
+                      children: [
                         SizedBox(
                           width: 200,
                           child: Padding(
                             padding: EdgeInsets.only(top: 30),
                             child: CupertinoTextField(
                               prefix: Icon(CupertinoIcons.person),
+                              onSubmitted: (newPlayerName) {
+                                playersList.insert(0,newPlayerName);
+                                print(newPlayerName);
+                              },
                               placeholder: "Joueurs",
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.vertical(
@@ -134,146 +136,136 @@ class StartGame extends State<GameScreen> {
           ),
           Align(
             alignment: Alignment(0, 0),
-            child: Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,              
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(top: 20),
-                    child: Text("No Limits", style: GoogleFonts.anton(textStyle: TextStyle(fontSize: 35, color: Color.fromRGBO(255, 255, 255, 1)))),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 20, top: 20),
-                    child: CircleAvatar(
-                      radius: 20,
-                      backgroundColor: Color.fromRGBO(0, 246, 113, 1),
-                      child: IconButton(
-                        icon: Icon(
-                          Icons.add,
-                          color: Colors.white,
-                        ),
-                        onPressed: () {
-                          showCupertinoModalPopup(
-                            context: context,
-                            builder: (BuildContext builder) {
-                              return CupertinoPopUp();
-                            }
-                          );
-                        },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,              
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: 20),
+                  child: Text("No Limits", style: GoogleFonts.anton(textStyle: TextStyle(fontSize: 35, color: Color.fromRGBO(255, 255, 255, 1)))),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 20, top: 20),
+                  child: CircleAvatar(
+                    radius: 20,
+                    backgroundColor: Color.fromRGBO(0, 246, 113, 1),
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.add,
+                        color: Colors.white,
                       ),
+                      onPressed: () {
+                        showCupertinoModalPopup(
+                          context: context,
+                          builder: (BuildContext builder) {
+                            return CupertinoPopUp();
+                          }
+                        );
+                      },
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
           Align(
             alignment: Alignment(0, 0),
-            child: Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,              
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: 10),
+                  child: Text("Choisissez un mode de jeu", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 20, color: Color.fromRGBO(255, 255, 255, 1)))),
+                ),
+              ],
+            ),
+          ),
+          Align(
+            alignment: Alignment(0, 0),
+            child: InkWell(
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              enableFeedback: false,
+              onTap: () {
+                Navigator.push(context,
+                  CupertinoPageRoute(builder:(context) => TruthOrDare()),
+                );
+              },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,              
                 children: [
+                  Padding(padding: EdgeInsets.only(top: 20),child: Spacer()),
                   Padding(
-                    padding: EdgeInsets.only(top: 10),
-                    child: Text("Choisissez un mode de jeu", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 20, color: Color.fromRGBO(255, 255, 255, 1)))),
+                       padding: EdgeInsets.only(top: 20),
+                       child: Text("Action ou vérité", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Color.fromRGBO(255, 255, 255, 1)))),
                   ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 10, right: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,              
+                      children: [
+                        Text("🔥", style: TextStyle(fontSize: 50)),
+                        Padding(
+                          padding: EdgeInsets.only(top: 0, left: 40),
+                          child: Text("Jurez vérité, et jouez vos actions\nles conséquences seront\nirréversible !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14, color: Color.fromRGBO(255, 255, 255, 1)))),
+                        ),
+                      ],
+                    )
+                  ),
+                 Padding(padding: EdgeInsets.only(top: 20),child: Spacer()),
                 ],
-              ),
-            ),
-          ),
-          Align(
-            alignment: Alignment(0, 0),
-            child: Container(
-              child: InkWell(
-                splashColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                enableFeedback: false,
-                onTap: () {
-                  Navigator.push(context,
-                    CupertinoPageRoute(builder:(context) => TruthOrDare()),
-                  );
-                },
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,              
-                  children: [
-                    Padding(padding: EdgeInsets.only(top: 20),child: Spacer()),
-                    Padding(
-                         padding: EdgeInsets.only(top: 20),
-                         child: Text("Action ou vérité", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Color.fromRGBO(255, 255, 255, 1)))),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 10, right: 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,              
-                        children: [
-                          Text("🔥", style: TextStyle(fontSize: 50)),
-                          Padding(
-                            padding: EdgeInsets.only(top: 0, left: 40),
-                            child: Text("Jurez vérité, et jouez vos actions\nles conséquences seront\nirréversible !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14, color: Color.fromRGBO(255, 255, 255, 1)))),
-                          ),
-                        ],
-                      )
-                    ),
-                   Padding(padding: EdgeInsets.only(top: 20),child: Spacer()),
-                  ],
-                ),
               ),
             ),
           ),
            Align(
             alignment: Alignment(0, 0),
-            child: Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,              
-                children: [
-                  Padding(
-                       padding: EdgeInsets.only(top: 20),
-                       child: Text("Actions commune !", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Color.fromRGBO(255, 255, 255, 1)))),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 10, right: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,              
-                      children: [
-                        Text("☠️", style: TextStyle(fontSize: 50)),
-                        Padding(
-                          padding: EdgeInsets.only(top: 0, left: 35),
-                          child: Text("Les actions qui suivent devront\nêtre faites en groupe, aucun\néchapatoire !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14, color: Color.fromRGBO(255, 255, 255, 1)))),
-                        ),
-                      ],
-                    )
-                  ),
-                  Padding(padding: EdgeInsets.only(top: 20),child: Spacer()),
-                ],
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,              
+              children: [
+                Padding(
+                     padding: EdgeInsets.only(top: 20),
+                     child: Text("Actions commune !", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Color.fromRGBO(255, 255, 255, 1)))),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 10, right: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,              
+                    children: [
+                      Text("☠️", style: TextStyle(fontSize: 50)),
+                      Padding(
+                        padding: EdgeInsets.only(top: 0, left: 35),
+                        child: Text("Les actions qui suivent devront\nêtre faites en groupe, aucun\néchapatoire !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14, color: Color.fromRGBO(255, 255, 255, 1)))),
+                      ),
+                    ],
+                  )
+                ),
+                Padding(padding: EdgeInsets.only(top: 20),child: Spacer()),
+              ],
             ),
           ),
           Align(
             alignment: Alignment(0, 0),
-            child: Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,              
-                children: [
-                  Padding(
-                       padding: EdgeInsets.only(top: 20),
-                       child: Text("Sans limites", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Color.fromRGBO(255, 255, 255, 1)))),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 10, right: 33),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,              
-                      children: [
-                        Text("❌", style: TextStyle(fontSize: 50)),
-                        Padding(
-                          padding: EdgeInsets.only(top: 0, left: 33),
-                          child: Text("Bienvue en enfer, il n'y a plus\nd'issue !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14, color: Color.fromRGBO(255, 255, 255, 1)))),
-                        ),
-                      ],
-                    )
-                  ),
-                  Padding(padding: EdgeInsets.only(top: 20, bottom: 20),child: Spacer()),
-                ],
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,              
+              children: [
+                Padding(
+                     padding: EdgeInsets.only(top: 20),
+                     child: Text("Sans limites", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Color.fromRGBO(255, 255, 255, 1)))),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 10, right: 33),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,              
+                    children: [
+                      Text("❌", style: TextStyle(fontSize: 50)),
+                      Padding(
+                        padding: EdgeInsets.only(top: 0, left: 33),
+                        child: Text("Bienvue en enfer, il n'y a plus\nd'issue !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14, color: Color.fromRGBO(255, 255, 255, 1)))),
+                      ),
+                    ],
+                  )
+                ),
+                Padding(padding: EdgeInsets.only(top: 20, bottom: 20),child: Spacer()),
+              ],
             ),
           ),
         ]),

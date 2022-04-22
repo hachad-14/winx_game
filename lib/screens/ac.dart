@@ -1,5 +1,4 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_null_comparison
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
@@ -9,27 +8,29 @@ import '../api/players.dart';
 import '../api/acQuestions.dart';
 
 class TruthOrDare extends StatefulWidget {
+  const TruthOrDare({Key? key}) : super(key: key);
+
   @override
   StartGame createState() => StartGame();
 }
 
 class Spacer extends StatelessWidget {
+  const Spacer({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,              
-        children: [
-          Container(
-            width: 340,
-            height: 1,
-            decoration:
-            BoxDecoration(color: Color.fromRGBO(0, 246, 113, 1), borderRadius: BorderRadius.circular(20),
-            boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3),spreadRadius: 0.5,blurRadius: 2, offset: Offset(0, 1), )]
-            ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,              
+      children: [
+        Container(
+          width: 340,
+          height: 1,
+          decoration:
+          BoxDecoration(color: Color.fromRGBO(0, 246, 113, 1), borderRadius: BorderRadius.circular(20),
+          boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3),spreadRadius: 0.5,blurRadius: 2, offset: Offset(0, 1), )]
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

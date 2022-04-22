@@ -1,16 +1,13 @@
 // ignore_for_file: prefer_const_constructors
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
 import 'secondScreen.dart';
-import 'api/players.dart';
 
 void main() => runApp(MaterialApp(
-  title: "HomePage",
+  title: "HomePage", 
   home: MyApp(),
   debugShowCheckedModeBanner: false,
   )
@@ -43,46 +40,42 @@ class MyApp extends StatelessWidget {
           Align(
             //location//
             alignment: Alignment(0, 0),
-            child: Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,              
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(top: 60),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("No Limits", style: GoogleFonts.anton(textStyle: TextStyle(fontSize: 55, color: Color.fromRGBO(255, 255, 255, 1)))),
-                      ],
-                    ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,              
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: 60),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("No Limits", style: GoogleFonts.anton(textStyle: TextStyle(fontSize: 55, color: Color.fromRGBO(255, 255, 255, 1)))),
+                    ],
                   ),
-                  Container(
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      enableFeedback: false,
-                      onTap: () async {
-                        Navigator.push(context,
-                           CupertinoPageRoute(builder:(context) => GameScreen()),
-                        );
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,    
-                        children: [
-                           Padding(
-                            padding: EdgeInsets.only(top: 80),
-                            child: Text("> Jouer", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 55, color: Color.fromRGBO(0, 246, 113, 1)))),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(top: 180),
-                            child: Text("Developpé par Hachad Saad.", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 10, color: Color.fromRGBO(255, 255, 255, 1)))),
-                          ),
-                        ],
+                ),
+                InkWell(
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  enableFeedback: false,
+                  onTap: () async {
+                    Navigator.push(context,
+                       CupertinoPageRoute(builder:(context) => GameScreen()),
+                    );
+                  },
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,    
+                    children: [
+                       Padding(
+                        padding: EdgeInsets.only(top: 80),
+                        child: Text("> Jouer", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 55, color: Color.fromRGBO(0, 246, 113, 1)))),
                       ),
-                    ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 180),
+                        child: Text("Developpé par Hachad Saad.", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 10, color: Color.fromRGBO(255, 255, 255, 1)))),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ]),
