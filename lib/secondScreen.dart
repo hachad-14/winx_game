@@ -67,7 +67,7 @@ class CupertinoPopUp extends StatelessWidget {
                         SizedBox(
                           width: 200,
                           child: Padding(
-                            padding: EdgeInsets.only(top: 30),
+                            padding: EdgeInsets.only(top:30, bottom: MediaQuery.of(context).viewInsets.bottom),
                             child: CupertinoTextField(
                               prefix: Icon(CupertinoIcons.person),
                               onSubmitted: (newPlayerName) {
