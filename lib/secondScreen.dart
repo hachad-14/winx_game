@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
-import 'package:winx_game/api/players.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'screens/ac.dart';
 import 'api/players.dart';
@@ -186,9 +186,13 @@ class StartGame extends State<GameScreen> {
               highlightColor: Colors.transparent,
               enableFeedback: false,
               onTap: () {
-                Navigator.push(context,
-                  CupertinoPageRoute(builder:(context) => TruthOrDare()),
-                );
+                if (playersList.isEmpty) {
+                  Fluttertoast.showToast(msg:"Ajoutez des joueurs d'abord !");
+                } else {
+                  Navigator.push(context,
+                    CupertinoPageRoute(builder:(context) => TruthOrDare()),
+                  );
+                }
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,              
