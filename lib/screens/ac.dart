@@ -7,8 +7,8 @@ import 'package:google_fonts/google_fonts.dart';
 import '../api/players.dart';
 import '../api/acQuestions.dart';
 
-class TruthOrDare extends StatefulWidget {
-  const TruthOrDare({Key? key}) : super(key: key);
+class ActionCommune extends StatefulWidget {
+  const ActionCommune({Key? key}) : super(key: key);
 
   @override
   StartGame createState() => StartGame();
@@ -26,7 +26,7 @@ class Spacer extends StatelessWidget {
           width: 340,
           height: 1,
           decoration:
-          BoxDecoration(color: Color.fromRGBO(0, 246, 113, 1), borderRadius: BorderRadius.circular(20),
+          BoxDecoration(color: Color.fromRGBO(73, 99, 112, 1), borderRadius: BorderRadius.circular(20),
           boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3),spreadRadius: 0.5,blurRadius: 2, offset: Offset(0, 1), )]
           ),
         ),
@@ -35,7 +35,7 @@ class Spacer extends StatelessWidget {
   }
 }
 
-class StartGame extends State<TruthOrDare> {
+class StartGame extends State<ActionCommune> {
   String randomPlayer = playersList[Random().nextInt(playersList.length)];
   String randomQuestion = questionsList[Random().nextInt(questionsList.length)];
    changeText() {
@@ -60,7 +60,7 @@ class StartGame extends State<TruthOrDare> {
               height: 60,
               width: 380,
               decoration:
-              BoxDecoration(color: Color.fromRGBO(0, 246, 113, 1), borderRadius: BorderRadius.circular(20),
+              BoxDecoration(color: Color.fromRGBO(73, 99, 112, 1), borderRadius: BorderRadius.circular(20),
               boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3),spreadRadius: 0.5,blurRadius: 2, offset: Offset(0, 1), )]
               ),
               child: Row(
@@ -87,7 +87,7 @@ class StartGame extends State<TruthOrDare> {
                child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,              
                 children: [
-                  Text("Action ou vérité 🔥", style: GoogleFonts.robotoCondensed(textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold ,color: Color.fromRGBO(255, 255, 255, 1)))),
+                  Text("Action Commune ☠️", style: GoogleFonts.robotoCondensed(textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold ,color: Color.fromRGBO(255, 255, 255, 1)))),
                   Padding(padding: EdgeInsets.only(top: 10), child:Spacer()),
                 ],
               ),
@@ -107,7 +107,7 @@ class StartGame extends State<TruthOrDare> {
                       width: 340,
                       height: 250,
                       decoration:
-                      BoxDecoration(color: Color.fromRGBO(0, 246, 113, 1), borderRadius: BorderRadius.circular(20),
+                      BoxDecoration(color: Color.fromRGBO(73, 99, 112, 1), borderRadius: BorderRadius.circular(20),
                       boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3),spreadRadius: 0.5,blurRadius: 2, offset: Offset(0, 1), )]
                       ),
                       child: Column(
@@ -138,7 +138,7 @@ class StartGame extends State<TruthOrDare> {
                       width: 340,
                       height: 60,
                       decoration:
-                      BoxDecoration(color: Color.fromRGBO(0, 246, 113, 1), borderRadius: BorderRadius.circular(20),
+                      BoxDecoration(color: Color.fromRGBO(73, 99, 112, 1), borderRadius: BorderRadius.circular(20),
                       boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3),spreadRadius: 0.5,blurRadius: 2, offset: Offset(0, 1), )]
                       ),
                       child: InkWell(
