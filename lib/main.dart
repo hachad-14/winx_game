@@ -1,8 +1,9 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, deprecated_member_use
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 import 'secondScreen.dart';
 
@@ -12,6 +13,44 @@ void main() => runApp(MaterialApp(
   debugShowCheckedModeBanner: false,
   )
 );
+
+class CupertinoPopUp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return CupertinoPopupSurface(
+      child: Material(
+        child: Container(
+          padding: EdgeInsetsDirectional.all(0),
+          color: Color.fromARGB(255, 34, 35, 43),
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).copyWith().size.height*0.7,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Align(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Consignes à respecter !',style: GoogleFonts.oswald(textStyle: TextStyle(fontSize: 25, color: Color.fromRGBO(0, 246, 113, 1)))),
+                    Padding(
+                      padding: EdgeInsets.only(top: 20),
+                      child: SizedBox(
+                        height: 250,
+                        width: 300,
+                        child: Text("Voici quelques consignes", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 25, color: Color.fromARGB(255, 255, 255, 255)))),
+                      )
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          )
+        ),
+      ),
+      isSurfacePainted: true,
+    );
+  }
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -48,32 +87,48 @@ class MyApp extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("No Limits", style: GoogleFonts.anton(textStyle: TextStyle(fontSize: 55, color: Color.fromRGBO(255, 255, 255, 1)))),
+                      Image.asset("assets/images/text.gif",),
+                      //Text("No Limits", style: GoogleFonts.anton(textStyle: TextStyle(fontSize: 55, color: Color.fromRGBO(255, 255, 255, 1)))),
                     ],
                   ),
                 ),
-                InkWell(
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  enableFeedback: false,
-                  onTap: () async {
-                    Navigator.push(context,
-                       CupertinoPageRoute(builder:(context) => GameScreen()),
-                    );
-                  },
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,    
-                    children: [
-                       Padding(
-                        padding: EdgeInsets.only(top: 80),
-                        child: Text("> Jouer", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 55, color: Color.fromRGBO(0, 246, 113, 1)))),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,    
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(top: 90),
+                      child: FlatButton(
+                        splashColor: Colors.transparent,  
+                        highlightColor: Colors.transparent,
+                        child: Text('> Jouer', style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 55, color: Color.fromRGBO(0, 246, 113, 1)))),
+                        onPressed: () {
+                           Navigator.push(context,
+                            CupertinoPageRoute(builder:(context) => GameScreen()),
+                          );
+                        },
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 180),
-                        child: Text("Developpé par Hachad Saad.", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 10, color: Color.fromRGBO(255, 255, 255, 1)))),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 20),
+                      child: FlatButton(
+                        splashColor: Colors.transparent,  
+                        highlightColor: Colors.transparent,
+                        child: Text('> Instructions', style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 28, color: Color.fromRGBO(0, 246, 113, 1)))),
+                        onPressed: () {
+                           showCupertinoModalPopup(
+                          context: context,
+                          builder: (BuildContext builder) {
+                            return CupertinoPopUp();
+                          }
+                        );
+                        },
                       ),
-                    ],
-                  ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 160),
+                      child: Text("Developpé par Hachad Saad.", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 10, color: Color.fromRGBO(255, 255, 255, 1)))),
+                    ),
+                  ],
                 ),
               ],
             ),

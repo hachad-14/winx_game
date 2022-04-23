@@ -27,6 +27,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  animated_text_kit: ^4.2.1
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
@@ -40,7 +41,6 @@ dev_dependencies:
     sdk: flutter
 
 flutter_native_splash:
-
   color: "#22232b"
   image: assets/images/splash_screen.png
 
@@ -49,7 +49,7 @@ flutter_native_splash:
 # The following section is specific to Flutter.
 flutter:
   assets:
-    - assets/data/
+    - assets/images/
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
