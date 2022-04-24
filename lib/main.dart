@@ -72,7 +72,7 @@ class MyApp extends StatelessWidget {
               boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3),spreadRadius: 0.5,blurRadius: 2, offset: Offset(0, 1), )]
               ),
               child: Center(
-                child: Text('Winx b0.1',style: GoogleFonts.oswald(textStyle: TextStyle(fontSize: 22),)),
+                child: Text('Winx b0.5',style: GoogleFonts.oswald(textStyle: TextStyle(fontSize: 22),)),
               ),
             ),
           ),

@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 import 'screens/av.dart';
 import 'screens/ac.dart';
 import 'screens/h.dart';
 import 'api/players.dart';
+import 'api/caroussel_api/carousel.dart';
 
 class GameScreen extends StatefulWidget {
   @override
@@ -35,7 +37,6 @@ class Spacer extends StatelessWidget {
 }
 
 class CupertinoPopUp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return CupertinoPopupSurface(
@@ -130,7 +131,7 @@ class StartGame extends State<GameScreen> {
                   ),
                   Padding(
                     padding: EdgeInsets.only(right: 120, left: 80),
-                    child: Text("Winx b0.1", style: GoogleFonts.oswald(textStyle: TextStyle(fontSize: 20, color: Colors.black))),
+                    child: Text("Winx b0.5", style: GoogleFonts.oswald(textStyle: TextStyle(fontSize: 20, color: Colors.black))),
                   ),
                 ],
               ),
@@ -199,103 +200,9 @@ class StartGame extends State<GameScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,              
                 children: [
-                  Padding(padding: EdgeInsets.only(top: 20),child: Spacer()),
                   Padding(
-                       padding: EdgeInsets.only(top: 20),
-                       child: Text("Action ou vérité", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Color.fromRGBO(255, 255, 255, 1)))),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 10, right: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,              
-                      children: [
-                        Text("🔥", style: TextStyle(fontSize: 50)),
-                        Padding(
-                          padding: EdgeInsets.only(top: 0, left: 40),
-                          child: Text("Jurez vérité, et jouez vos actions\nles conséquences seront\nirréversible !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14, color: Color.fromRGBO(255, 255, 255, 1)))),
-                        ),
-                      ],
-                    )
-                  ),
-                 Padding(padding: EdgeInsets.only(top: 20),child: Spacer()),
-                ],
-              ),
-            ),
-          ),
-          Align(
-           alignment: Alignment(0, 0),
-           child: InkWell(
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              enableFeedback: false,
-              onTap: () {
-                if (playersList.isEmpty) {
-                  Fluttertoast.showToast(msg:"Ajoutez des joueurs d'abord !");
-                } else {
-                  Navigator.push(context,
-                    CupertinoPageRoute(builder:(context) => ActionCommune()),
-                  );
-                }
-              },
-              child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,              
-              children: [
-                Padding(
-                     padding: EdgeInsets.only(top: 20),
-                     child: Text("Actions commune !", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Color.fromRGBO(255, 255, 255, 1)))),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 10, right: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,              
-                    children: [
-                      Text("☠️", style: TextStyle(fontSize: 50)),
-                      Padding(
-                        padding: EdgeInsets.only(top: 0, left: 35),
-                        child: Text("Les actions qui suivent devront\nêtre faites en groupe, aucun\néchapatoire !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14, color: Color.fromRGBO(255, 255, 255, 1)))),
-                      ),
-                    ],
-                  )
-                ),
-                Padding(padding: EdgeInsets.only(top: 20),child: Spacer()),
-              ],
-             ),
-           ),
-          ),
-          Align(
-            alignment: Alignment(0, 0),
-            child: InkWell(
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              enableFeedback: false,
-              onTap: () {
-                if (playersList.isEmpty) {
-                  Fluttertoast.showToast(msg:"Ajoutez des joueurs d'abord !");
-                } else {
-                  Navigator.push(context,
-                    CupertinoPageRoute(builder:(context) => SansLimites()),
-                  );
-                }
-              },
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,              
-                children: [
-                  Padding(
-                      padding: EdgeInsets.only(top: 20),
-                      child: Text("Sans limites", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Color.fromRGBO(255, 255, 255, 1)))),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 10, right: 33),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,              
-                      children: [
-                        Text("❌", style: TextStyle(fontSize: 50)),
-                        Padding(
-                          padding: EdgeInsets.only(top: 0, left: 33),
-                          child: Text("Bienvue en enfer, il n'y a plus\nd'issue !", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 14, color: Color.fromRGBO(255, 255, 255, 1)))),
-                        ),
-                      ],
-                    )
+                    padding: EdgeInsets.only(top: 20),
+                    child: GamesCarousel(),
                   ),
                   Padding(padding: EdgeInsets.only(top: 20, bottom: 20),child: Spacer()),
                 ],

@@ -74,7 +74,7 @@ class StartGame extends State<TruthOrDare> {
                   ),
                   Padding(
                     padding: EdgeInsets.only(right: 120, left: 80),
-                    child: Text("Winx b0.1", style: GoogleFonts.oswald(textStyle: TextStyle(fontSize: 20, color: Colors.black))),
+                    child: Text("Winx b0.5", style: GoogleFonts.oswald(textStyle: TextStyle(fontSize: 20, color: Colors.black))),
                   ),
                 ],
               ),
