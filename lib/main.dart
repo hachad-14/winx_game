@@ -96,7 +96,7 @@ class MyApp extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,    
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(top: 90),
+                      padding: EdgeInsets.only(top: 80),
                       child: FlatButton(
                         splashColor: Colors.transparent,  
                         highlightColor: Colors.transparent,
@@ -109,23 +109,26 @@ class MyApp extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 20),
-                      child: FlatButton(
-                        splashColor: Colors.transparent,  
-                        highlightColor: Colors.transparent,
-                        child: Text('> Instructions', style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 28, color: Color.fromRGBO(0, 246, 113, 1)))),
-                        onPressed: () {
-                           showCupertinoModalPopup(
-                          context: context,
-                          builder: (BuildContext builder) {
-                            return CupertinoPopUp();
-                          }
-                        );
+                      padding: EdgeInsets.only(top: 10),
+                      child: InkWell(
+                        onTap: () {
+                          showCupertinoModalPopup(
+                            context: context,
+                            builder: (BuildContext builder) {
+                              return CupertinoPopUp();
+                            }
+                          );
                         },
+                        child: Container(
+                          height: 45,
+                          width: 230,
+                          decoration: BoxDecoration(color: Color.fromRGBO(0, 246, 113, 1), borderRadius: BorderRadius.circular(10)),
+                          child:Text('> Instructions', textAlign: TextAlign.center, style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 28, color: Color.fromARGB(255, 0, 0, 0)))),
+                        ),
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 160),
+                      padding: EdgeInsets.only(top: 180),
                       child: Text("Developpé par Hachad Saad.", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 10, color: Color.fromRGBO(255, 255, 255, 1)))),
                     ),
                   ],

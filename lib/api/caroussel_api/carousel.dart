@@ -85,13 +85,13 @@ class Item1 extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("🔥", style: TextStyle(fontSize: 50)),
+            Text("🔥", style: TextStyle(fontSize: 80)),
             Padding(
               padding: EdgeInsets.only(top: 20),
               child: Text("Action ou vérité", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Color.fromRGBO(255, 255, 255, 1)))),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 20, right: 0),
+              padding: EdgeInsets.only(top: 20, bottom: 40),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,              
                 children: [
@@ -132,13 +132,13 @@ class Item2 extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("☠️", style: TextStyle(fontSize: 50)),
+            Text("☠️", style: TextStyle(fontSize: 80)),
             Padding(
               padding: EdgeInsets.only(top: 20),
               child: Text("Actions commune", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Color.fromRGBO(255, 255, 255, 1)))),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 20, right: 0),
+              padding: EdgeInsets.only(top: 20, bottom: 40),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,              
                 children: [
@@ -178,13 +178,13 @@ class Item3 extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("❌", style: TextStyle(fontSize: 50)),
+            Text("❌", style: TextStyle(fontSize: 80)),
             Padding(
               padding: EdgeInsets.only(top: 20),
               child: Text("Sans limites", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Color.fromRGBO(255, 255, 255, 1)))),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 20, right: 0),
+              padding: EdgeInsets.only(top: 20, bottom: 40),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,              
                 children: [

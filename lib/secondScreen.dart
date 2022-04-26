@@ -131,7 +131,7 @@ class StartGame extends State<GameScreen> {
                   ),
                   Padding(
                     padding: EdgeInsets.only(right: 120, left: 80),
-                    child: Text("Winx b0.5", style: GoogleFonts.oswald(textStyle: TextStyle(fontSize: 20, color: Colors.black))),
+                    child: Text("Winx b0.1", style: GoogleFonts.oswald(textStyle: TextStyle(fontSize: 20, color: Colors.black))),
                   ),
                 ],
               ),
@@ -184,29 +184,15 @@ class StartGame extends State<GameScreen> {
           ),
           Align(
             alignment: Alignment(0, 0),
-            child: InkWell(
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              enableFeedback: false,
-              onTap: () {
-                if (playersList.isEmpty) {
-                  Fluttertoast.showToast(msg:"Ajoutez des joueurs d'abord !");
-                } else {
-                  Navigator.push(context,
-                    CupertinoPageRoute(builder:(context) => TruthOrDare()),
-                  );
-                }
-              },
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,              
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(top: 20),
-                    child: GamesCarousel(),
-                  ),
-                  Padding(padding: EdgeInsets.only(top: 20, bottom: 20),child: Spacer()),
-                ],
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,              
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: 20),
+                  child: GamesCarousel(),
+                ),
+                Padding(padding: EdgeInsets.only(top: 20, bottom: 20),child: Spacer()),
+              ],
             ),
           ),
         ]),
