@@ -85,7 +85,10 @@ class CupertinoPopUp extends StatelessWidget {
                               },
                               placeholder: "Joueurs",
                               suffix: IconButton(
-                                onPressed: _controller.clear,
+                                onPressed: () {
+                                  _controller.clear;
+                                  FocusManager.instance.primaryFocus?.requestFocus();
+                                },
                                 icon: Icon(Icons.clear),
                               ),
                               decoration: BoxDecoration(
