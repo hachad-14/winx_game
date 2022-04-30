@@ -37,7 +37,7 @@ class CupertinoPopUp extends StatelessWidget {
                       child: SizedBox(
                         height: 250,
                         width: 300,
-                        child: Text("Voici quelques consignes", style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 25, color: Color.fromARGB(255, 255, 255, 255)))),
+                        child: Text("Voici quelques consignes:\n-Il est strictement interdit de refuser n'importe quelle action ou vérité\n-Aucun joueur ne doit quitter la partie sans l'accord du groupe\n-Celui qui refuse une action aura une gage.", textAlign: TextAlign.left ,style: GoogleFonts.poppins(textStyle:TextStyle(fontSize: 20, color: Color.fromARGB(255, 255, 255, 255)))),
                       )
                     ),
                   ],

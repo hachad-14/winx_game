@@ -38,6 +38,9 @@ class Spacer extends StatelessWidget {
 
 class CupertinoPopUp extends StatelessWidget {
   @override
+
+  var _controller = TextEditingController();
+  
   Widget build(BuildContext context) {
     return CupertinoPopupSurface(
       child: Material(
@@ -72,12 +75,19 @@ class CupertinoPopUp extends StatelessWidget {
                           child: Padding(
                             padding: EdgeInsets.only(top:30, bottom: MediaQuery.of(context).viewInsets.bottom),
                             child: CupertinoTextField(
+                              keyboardAppearance: Brightness.dark,
+                              controller: _controller,
                               prefix: Icon(CupertinoIcons.person),
                               onSubmitted: (newPlayerName) {
                                 playersList.insert(0,newPlayerName);
                                 print(newPlayerName);
+                                FocusManager.instance.primaryFocus?.requestFocus();
                               },
                               placeholder: "Joueurs",
+                              suffix: IconButton(
+                                onPressed: _controller.clear,
+                                icon: Icon(Icons.clear),
+                              ),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.vertical(
                                   top: Radius.circular(10),

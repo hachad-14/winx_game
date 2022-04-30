@@ -34,7 +34,7 @@ class CarouselState extends State<GamesCarousel> {
     }
     return result;
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -83,7 +83,7 @@ class Item1 extends StatelessWidget {
           }
         },
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text("🔥", style: TextStyle(fontSize: 80)),
             Padding(
