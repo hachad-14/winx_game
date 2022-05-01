@@ -81,7 +81,7 @@ class CupertinoPopUp extends StatelessWidget {
                               onSubmitted: (newPlayerName) {
                                 playersList.insert(0,newPlayerName);
                                 print(newPlayerName);
-                                FocusManager.instance.primaryFocus?.nextFocus();
+                                FocusManager.instance.primaryFocus?.requestFocus();
                               },
                               placeholder: "Joueurs",
                               suffix: IconButton(
