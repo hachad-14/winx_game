@@ -10,7 +10,7 @@ import 'screens/av.dart';
 import 'screens/ac.dart';
 import 'screens/h.dart';
 import 'api/players.dart';
-import 'api/caroussel_api/carousel.dart';
+import 'api/screens_api/carousel.dart';
 
 class GameScreen extends StatefulWidget {
   @override
@@ -81,13 +81,12 @@ class CupertinoPopUp extends StatelessWidget {
                               onSubmitted: (newPlayerName) {
                                 playersList.insert(0,newPlayerName);
                                 print(newPlayerName);
-                                FocusManager.instance.primaryFocus?.requestFocus();
+                                FocusManager.instance.primaryFocus?.nextFocus();
                               },
                               placeholder: "Joueurs",
                               suffix: IconButton(
                                 onPressed: () {
-                                  _controller.clear;
-                                  FocusManager.instance.primaryFocus?.requestFocus();
+                                  _controller.clear();
                                 },
                                 icon: Icon(Icons.clear),
                               ),

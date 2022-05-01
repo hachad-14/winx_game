@@ -20,7 +20,7 @@ class CupertinoPopUp extends StatelessWidget {
     return CupertinoPopupSurface(
       child: Material(
         child: Container(
-          padding: EdgeInsetsDirectional.all(0),
+          padding: EdgeInsetsDirectional.all(0), 
           color: Color.fromARGB(255, 34, 35, 43),
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).copyWith().size.height*0.7,
