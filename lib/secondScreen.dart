@@ -37,12 +37,15 @@ class Spacer extends StatelessWidget {
   }
 }
 
+
 class CupertinoPopUp extends StatelessWidget {
   @override
 
   var _controller = TextEditingController();
 
   get newPlayerName => null;
+
+  get inputFieldNode => null;
   
   Widget build(BuildContext context) {
     return CupertinoPopupSurface(
@@ -78,13 +81,14 @@ class CupertinoPopUp extends StatelessWidget {
                           child: Padding(
                             padding: EdgeInsets.only(top:30, bottom: MediaQuery.of(context).viewInsets.bottom),
                             child: CupertinoTextField(
+                              focusNode: inputFieldNode,
                               keyboardAppearance: Brightness.dark,
                               controller: _controller,
                               prefix: Icon(CupertinoIcons.person),
-                              onEditingComplete: () {},
                               onSubmitted: (newPlayerName) {
                                 playersList.insert(0,newPlayerName);
-                                 _controller.clear();
+                                _controller.clear();
+                                FocusScope.of(context).requestFocus(inputFieldNode);
                                 print(newPlayerName);
                               },
                               placeholder: "Joueurs",
@@ -119,6 +123,21 @@ class CupertinoPopUp extends StatelessWidget {
 }
 
 class StartGame extends State<GameScreen> {
+
+  late FocusNode inputFieldNode;
+
+  @override
+   void initState() {
+     super.initState();
+     inputFieldNode = FocusNode();
+  }
+
+  @override
+  void dispose() {
+    inputFieldNode.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
