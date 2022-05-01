@@ -1,3 +1,4 @@
+// ignore_for_file: file_names
 var questionsList = [
   'Laisse le joueur de ton choix te faire des chatouilles pendant une minute !',
   'Fais un concours de celui qui dira le plus de gros mots contre le joueur de ton choix !',

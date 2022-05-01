@@ -32,6 +32,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  flutter_fortune_wheel: ^1.2.0
   flutter_native_splash: ^2.1.6
   fluttertoast: ^8.0.9
   google_fonts: ^2.3.1

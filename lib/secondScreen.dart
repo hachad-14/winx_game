@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, unnecessary_null_comparison, use_key_in_widget_constructors, avoid_print
+// ignore_for_file: prefer_const_constructors, unnecessary_null_comparison, use_key_in_widget_constructors, avoid_print, file_names
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,10 +9,6 @@ import 'api/players.dart';
 import 'api/screens_api/carousel.dart';
 
 class GameScreen extends StatefulWidget {
-  final VoidCallback? onEditingComplete;
-
-  const GameScreen({Key? key, this.onEditingComplete}) : super(key: key);
-  
   @override
   StartGame createState() => StartGame();
 }
@@ -38,10 +34,9 @@ class Spacer extends StatelessWidget {
 
 class CupertinoPopUp extends StatelessWidget {
 
-  @override
-
-  var _controller = TextEditingController();
+  final _controller = TextEditingController();
   
+  @override
   Widget build(BuildContext context) {
     return CupertinoPopupSurface(
       child: Material(
@@ -79,15 +74,15 @@ class CupertinoPopUp extends StatelessWidget {
                               keyboardAppearance: Brightness.dark,
                               controller: _controller,
                               prefix: Icon(CupertinoIcons.person),
-                              onEditingComplete: () => {
-                                playersList.insert(0, _controller.text),
-                                _controller.clear(),
-                                print(_controller.text),
+                              onEditingComplete: () {
+                                playersList.insert(0, _controller.text);
+                                print(_controller.text);
+                                _controller.clear();
                               },
                               //onSubmitted: (newPlayerName) {
                               //  playersList.insert(0,newPlayerName);
-                              //   _controller.clear();
                               //  print(newPlayerName);
+                              //  _controller.clear();
                               //},
                               placeholder: "Joueurs",
                               suffix: IconButton(

@@ -7,7 +7,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:winx_game/screens/ac.dart';
 import 'package:winx_game/screens/h.dart';
-
+import 'package:winx_game/screens/jdp.dart';
 import '../../screens/av.dart';
 import '../players.dart';
 
@@ -17,8 +17,6 @@ class GamesCarousel extends StatefulWidget {
 }
 
 class CarouselState extends State<GamesCarousel> {
-
-  int _currentIndex=0;
 
   List cardList=[
     Item1(),
@@ -46,7 +44,7 @@ class CarouselState extends State<GamesCarousel> {
           items: cardList.map((card){
             return Builder(
               builder:(BuildContext context){
-                return Container(
+                return SizedBox(
                   height: MediaQuery.of(context).size.height*0.30,
                   width: MediaQuery.of(context).size.width,
                   child: Card(color: Colors.transparent,child: card,),
@@ -205,8 +203,17 @@ class Item4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+    splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
+      enableFeedback: false,
       onTap: () {
-        print("object");
+        if (playersList.isEmpty) {
+          Fluttertoast.showToast(msg:"Ajoutez des joueurs d'abord !");
+        } else {
+          Navigator.push(context,
+            CupertinoPageRoute(builder:(context) => JeuxDesProbs()),
+          );
+        }
       },
       child: Container(
         decoration: 
@@ -215,8 +222,22 @@ class Item4 extends StatelessWidget {
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const[
-            Text("En développement...", style: TextStyle(color: Colors.white, fontSize: 22.0, fontWeight: FontWeight.bold)),
+          children: [
+            Text("🎡", style: TextStyle(fontSize: 80)),
+            Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: Text("Jeux Des Problèmes", style: GoogleFonts.roboto(textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Color.fromRGBO(255, 255, 255, 1)))),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 20, bottom: 40),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,              
+                children: [
+                  Text("Bienvue en enfer, il n'y a plus\nd'issue !", textAlign: TextAlign.center, style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 18, color: Color.fromARGB(255, 0, 0, 0)))),
+                  Padding(padding: EdgeInsets.only(top: 20)),
+                ],
+              )
+            ),
           ],
         ),
       ),
