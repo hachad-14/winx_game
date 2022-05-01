@@ -4,16 +4,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
-import 'screens/av.dart';
-import 'screens/ac.dart';
-import 'screens/h.dart';
 import 'api/players.dart';
 import 'api/screens_api/carousel.dart';
 
 class GameScreen extends StatefulWidget {
+  final VoidCallback? onEditingComplete;
+
+  const GameScreen({Key? key, this.onEditingComplete}) : super(key: key);
+  
   @override
   StartGame createState() => StartGame();
 }
@@ -37,15 +36,11 @@ class Spacer extends StatelessWidget {
   }
 }
 
-
 class CupertinoPopUp extends StatelessWidget {
+
   @override
 
   var _controller = TextEditingController();
-
-  get newPlayerName => null;
-
-  get inputFieldNode => null;
   
   Widget build(BuildContext context) {
     return CupertinoPopupSurface(
@@ -81,16 +76,19 @@ class CupertinoPopUp extends StatelessWidget {
                           child: Padding(
                             padding: EdgeInsets.only(top:30, bottom: MediaQuery.of(context).viewInsets.bottom),
                             child: CupertinoTextField(
-                              focusNode: inputFieldNode,
                               keyboardAppearance: Brightness.dark,
                               controller: _controller,
                               prefix: Icon(CupertinoIcons.person),
-                              onSubmitted: (newPlayerName) {
-                                playersList.insert(0,newPlayerName);
-                                _controller.clear();
-                                FocusScope.of(context).requestFocus(inputFieldNode);
-                                print(newPlayerName);
+                              onEditingComplete: () => {
+                                playersList.insert(0, _controller.text),
+                                _controller.clear(),
+                                print(_controller.text),
                               },
+                              //onSubmitted: (newPlayerName) {
+                              //  playersList.insert(0,newPlayerName);
+                              //   _controller.clear();
+                              //  print(newPlayerName);
+                              //},
                               placeholder: "Joueurs",
                               suffix: IconButton(
                                 onPressed: () {
@@ -123,21 +121,6 @@ class CupertinoPopUp extends StatelessWidget {
 }
 
 class StartGame extends State<GameScreen> {
-
-  late FocusNode inputFieldNode;
-
-  @override
-   void initState() {
-     super.initState();
-     inputFieldNode = FocusNode();
-  }
-
-  @override
-  void dispose() {
-    inputFieldNode.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
