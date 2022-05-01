@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors, unnecessary_null_comparison, use_key_in_widget_constructors, avoid_print
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -80,9 +81,10 @@ class CupertinoPopUp extends StatelessWidget {
                               prefix: Icon(CupertinoIcons.person),
                               onSubmitted: (newPlayerName) {
                                 playersList.insert(0,newPlayerName);
+                                 _controller.clear();
                                 print(newPlayerName);
-                                FocusManager.instance.primaryFocus?.requestFocus();
                               },
+                              onEditingComplete: () {},
                               placeholder: "Joueurs",
                               suffix: IconButton(
                                 onPressed: () {
