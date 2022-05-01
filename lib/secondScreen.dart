@@ -41,6 +41,8 @@ class CupertinoPopUp extends StatelessWidget {
   @override
 
   var _controller = TextEditingController();
+
+  get newPlayerName => null;
   
   Widget build(BuildContext context) {
     return CupertinoPopupSurface(
