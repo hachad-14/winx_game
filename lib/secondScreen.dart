@@ -81,12 +81,12 @@ class CupertinoPopUp extends StatelessWidget {
                               keyboardAppearance: Brightness.dark,
                               controller: _controller,
                               prefix: Icon(CupertinoIcons.person),
+                              onEditingComplete: () {},
                               onSubmitted: (newPlayerName) {
                                 playersList.insert(0,newPlayerName);
                                  _controller.clear();
                                 print(newPlayerName);
                               },
-                              onEditingComplete: () {},
                               placeholder: "Joueurs",
                               suffix: IconButton(
                                 onPressed: () {
