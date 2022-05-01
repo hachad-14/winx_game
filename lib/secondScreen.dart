@@ -63,7 +63,7 @@ class CupertinoPopUp extends StatelessWidget {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Ajouter des  joueurs", style: TextStyle(color: Color.fromRGBO(0, 246, 113, 1), fontSize: 30),),
+                        Text("Ajouter des joueurs", style: TextStyle(color: Color.fromRGBO(0, 246, 113, 1), fontSize: 30),),
                         Padding(
                           padding: EdgeInsets.only(top: 10, bottom: 20),
                           child: Text("Joueurs par defaut: $playersList",style: TextStyle(color: Colors.white)),
