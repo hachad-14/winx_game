@@ -11,7 +11,8 @@ class SpinWheel extends StatefulWidget {
 }
 
 class _SpinWheelState extends State<SpinWheel> {
-  int selected = 0;
+  int e = 0;
+  Stream<int> selected = const Stream<int>.empty();
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +25,9 @@ class _SpinWheelState extends State<SpinWheel> {
             height: 500,
             child: FortuneWheel(
               animateFirst: false,
-              //selected: selected,
+              selected: selected,
               physics: CircularPanPhysics(
-                duration: Duration(seconds: 1),
+                duration: Duration(seconds: 2),
                 curve: Curves.decelerate,
               ),
               onFling: () {

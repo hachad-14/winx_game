@@ -18,9 +18,11 @@ class Jdp  extends State<JeuxDesProbs > {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Color.fromARGB(255, 34, 35, 43),
-        body: ListView(children: <Widget>[
+        body: ListView(
+          physics: NeverScrollableScrollPhysics(),
+          children: <Widget>[
           Padding(
-            padding: EdgeInsets.only(top: 20),
+            padding: EdgeInsets.only(top: 100),
             child: Container(
               height: 100,
               child: SpinWheel(),
