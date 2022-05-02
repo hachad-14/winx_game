@@ -5,8 +5,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
 
-import 'choosescreen.dart';
-
 class SpinWheel extends StatefulWidget {
   @override
   _SpinWheelState createState() => _SpinWheelState();
@@ -23,7 +21,7 @@ class _SpinWheelState extends State<SpinWheel> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            height: 70,
+            height: 500,
             child: FortuneWheel(
               animateFirst: false,
               //selected: selected,
@@ -42,19 +40,16 @@ class _SpinWheelState extends State<SpinWheel> {
                 borderWidth: 5,
               ),
               items: const [
-                FortuneItem(child: Text("10", style: TextStyle(
+                FortuneItem(child: Text("Tizou", style: TextStyle(
                   color: Colors.white,
                 ),)),
-                FortuneItem(child: Text("20", style: TextStyle(
+                FortuneItem(child: Text("Zazari", style: TextStyle(
                   color: Colors.white,
                 ),)),
-                FortuneItem(child: Text("50", style: TextStyle(
+                FortuneItem(child: Text("Oussama", style: TextStyle(
                   color: Colors.white,
                 ),)),
-                FortuneItem(child: Text("100", style: TextStyle(
-                  color: Colors.white,
-                ),)),
-                FortuneItem(child: Text("200", style: TextStyle(
+                FortuneItem(child: Text("Spaka", style: TextStyle(
                   color: Colors.white,
                 ),)),
               ],
