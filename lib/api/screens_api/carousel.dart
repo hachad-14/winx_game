@@ -207,13 +207,9 @@ class Item4 extends StatelessWidget {
       highlightColor: Colors.transparent,
       enableFeedback: false,
       onTap: () {
-        if (playersList.isEmpty) {
-          Fluttertoast.showToast(msg:"Ajoutez des joueurs d'abord !");
-        } else {
-          Navigator.push(context,
+        Navigator.push(context,
             CupertinoPageRoute(builder:(context) => JeuxDesProbs()),
-          );
-        }
+        );
       },
       child: Container(
         decoration: 
