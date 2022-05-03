@@ -1,77 +1,91 @@
 // ignore_for_file: avoid_print, prefer_adjacent_string_concatenation
 
-import 'dart:math';
-
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
 
+import '../players.dart';
+
 class SpinWheel extends StatefulWidget {
+  const SpinWheel({Key? key}) : super(key: key);
+
   @override
   _SpinWheelState createState() => _SpinWheelState();
 }
 
 class _SpinWheelState extends State<SpinWheel> {
-  int e = 0;
-  Stream<int> selected = const Stream<int>.empty();
+  StreamController<int> selected = StreamController<int>.broadcast();
+
+  @override
+  void dispose() {
+    selected.close();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+    final items = playersList;
+
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          selected.add(
+            Fortune.randomInt(0, items.length),
+          );
+        });
+      },
+      child: Column(
         children: [
-          Container(
-            height: 500,
+          Expanded(
             child: FortuneWheel(
-              animateFirst: false,
-              selected: selected,
-              physics: CircularPanPhysics(
-                duration: Duration(seconds: 2),
-                curve: Curves.decelerate,
-              ),
               onFling: () {
+                selected.add(1);
+              },
+              onAnimationStart: () {
                 setState(() {
-                  selected = Random().nextInt(4);
                 });
               },
-              styleStrategy: const UniformStyleStrategy(
-                borderColor: Colors.black,
-                color: Colors.red,
-                borderWidth: 5,
-              ),
-              items: const [
-                FortuneItem(child: Text("Tizou", style: TextStyle(
-                  color: Colors.white,
-                ),)),
-                FortuneItem(child: Text("Zazari", style: TextStyle(
-                  color: Colors.white,
-                ),)),
-                FortuneItem(child: Text("Oussama", style: TextStyle(
-                  color: Colors.white,
-                ),)),
-                FortuneItem(child: Text("Spaka", style: TextStyle(
-                  color: Colors.white,
-                ),)),
-              ],
               onAnimationEnd: () {
-                print("Value : " + "$selected");
+                  selected.stream.listen((Text) {
+                    print('Value from controller: $Text');
+                  }
+                );
               },
+              animateFirst: false,
+              physics: CircularPanPhysics(
+                duration: const Duration(seconds: 1),
+                curve: Curves.elasticInOut,
+              ),
+              selected: selected.stream,
+              items: [
+                for (var it in items) FortuneItem(child: Text(it)),
+              ],
             ),
           ),
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                selected = Random().nextInt(4);
-              });
-            },
-            child: Container(
-              color: Colors.blue,
-              height: 20,
-              width: 100,
-              child: const Center(child: Text("SPIN"),),
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: Column(
+              children: [
+                InkWell(
+                  onTap: () {
+                    print("object");
+                  },
+                  child: Container(
+                    height: 40,
+                    width: 200,
+                    decoration:
+                    BoxDecoration(color: const Color.fromRGBO(0, 246, 113, 1), borderRadius: BorderRadius.circular(20),
+                    boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.3),spreadRadius: 0.5,blurRadius: 2, offset: const Offset(0, 1), )]
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 7),
+                      child: Text("Rouler", textAlign: TextAlign.center, style: TextStyle(fontSize: 20),),
+                    )
+                  ),
+                ),
+              ],
             ),
-          )
+          ),
         ],
       ),
     );

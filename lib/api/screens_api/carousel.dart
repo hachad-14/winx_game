@@ -165,7 +165,7 @@ class Item3 extends StatelessWidget {
         highlightColor: Colors.transparent,
         enableFeedback: false,
         onTap: () {
-          if (playersList.isEmpty) {
+        if (playersList.isEmpty) {
             Fluttertoast.showToast(msg:"Ajoutez des joueurs d'abord !");
           } else {
             Navigator.push(context,
@@ -207,9 +207,13 @@ class Item4 extends StatelessWidget {
       highlightColor: Colors.transparent,
       enableFeedback: false,
       onTap: () {
-        Navigator.push(context,
-            CupertinoPageRoute(builder:(context) => JeuxDesProbs()),
-        );
+        if (playersList.isEmpty) {
+            Fluttertoast.showToast(msg:"Ajoutez des joueurs d'abord !");
+          } else {
+            Navigator.push(context,
+              CupertinoPageRoute(builder:(context) => JeuxDesProbs()),
+          );
+        }
       },
       child: Container(
         decoration: 
